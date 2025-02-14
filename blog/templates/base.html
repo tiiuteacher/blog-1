@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mening Blogim{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(216, 45, 45, 0.1);
+        }
+        header {
+            background: #3aa708;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            text-align: left;
+            padding: 10px;
+            background: #305815;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            background: #469e13;
+            color: white;
+        }
+
+        /* Slideshow Style */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slides {
+            display: none;
+            width: 100%;
+        }
+        .slideshow-container img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            font-size: 18px;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="{% url 'index' %}">Bosh sahifa</a>
+            <a href="{% url 'post_list' %}">Postpar sahifa</a>
+             <a href="/admin/">Admin Panel</a>
+        </nav>
+    </header>
+
+    <!-- Slideshow -->
+ 
+        <div class="slideshow-container">
+            <div class="slides">
+                <img src="https://www.punttodigital.com/wp-content/uploads/2020/09/tienda-online.jpg" alt="Slide 1">
+            </div>
+            <div class="slides">
+                <img src="https://wwwforetagskalla.cdn.triggerfish.cloud/uploads/2023/02/webbhandel_alternativ-870x457.jpg" alt="Slide 2">
+            </div>
+            <div class="slides">
+                <img src="https://i2.wp.com/digitiz.fr/wp-content/uploads/2017/02/Dropshipping.jpg?fit=1100%2C550&ssl=1" alt="Slide 3">
+            </div>
+            <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+            <button class="next" onclick="plusSlides(1)">&#10095;</button>
+        </div>
+        
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Mening Blogim. Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function plusSlides(n) {
+            slideIndex += n;
+            showSlides();
+        }
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slides");
+            if (slideIndex >= slides.length) { slideIndex = 0; }
+            if (slideIndex < 0) { slideIndex = slides.length - 1; }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            if (slides.length > 0) {
+                slides[slideIndex].style.display = "block";
+            }
+        }
+
+        setInterval(() => { plusSlides(1); }, 3000);
+    </script>
+
+</body>
+</html>

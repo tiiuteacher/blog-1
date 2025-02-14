@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} Index sahifasi{% endblock %}
+
+{% block content %}
+    <h2>Index sahifasi</h2>
+    <ul>
+        <!-- {% for post in posts %}
+            <li>
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.content_small }}</p>
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}" width="200">
+                {% endif %}
+                <p><strong>Kategoriya:</strong> {{ post.category }}</p>
+                <p><strong>Chop etilgan:</strong> {{ post.created_at }}</p>
+                <p><strong>Kalit so‘zlar:</strong> {{ post.keywords }}</p>
+                <hr>
+            </li>
+        {% endfor %} -->
+    </ul>
+{% endblock %}
