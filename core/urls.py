@@ -23,4 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
      path('', include('blog.urls')),
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# STATIC va MEDIA fayllarni faqat "DEBUG=True" bo'lsa ishlatish
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
