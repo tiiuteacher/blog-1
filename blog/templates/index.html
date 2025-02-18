@@ -4,7 +4,8 @@
 <title>{% block title %}Indes - My Django Site{% endblock %}</title> 
 
 {% block content %}
-    
+<div class="header_section">
+  <div class="header_left">    
 <div class="banner_main">
     <h1 class="banner_taital">financial <br>Service</h1>
     <p class="banner_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever </p>
@@ -96,7 +97,7 @@
               <div class="images_main">
                 <div class="images_left">
                   <div class="container_1">
-                    <img src="images/img-2.png'%}"alt="Avatar" class="image" style="width:100%">
+                    <img src="{% static 'images/img-2.png'%}"alt="Avatar" class="image" style="width:100%">
                     <div class="middle">
                       <div class="text"><img src="{% static 'images/search-icon.png'%}"></div>
                       <h2 class="fact_text">Established Fact</h2>
